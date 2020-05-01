@@ -18,10 +18,12 @@ def ks2d2s(x1, y1, x2, y2):
 
 def quadct(x, y, xx, yy):
     nn  = len(xx)
-    na = np.sum((yy > y) & (xx > x))
-    nb = np.sum((yy > y) & (xx < x))
-    nc = np.sum((yy < y) & (xx < x))
-    nd = np.sum((yy < y) & (xx > x))
+    yyg = (yy > y)
+    xxg = (xx > x)
+    na = np.sum(yyg & xxg)
+    nb = np.sum(yyg & ~xxg)
+    nc = np.sum(~yyg & ~xxg)
+    nd = np.sum(~yyg & xxg)
 
     ff = 1 / nn
     fa = na * ff
