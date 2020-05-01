@@ -4,8 +4,8 @@ from scipy import stats
 def ks2d2s(x1, y1, x2, y2):
     assert (len(x1) == len(y1)) & (len(x2) == len(y2))
 
-    d1 = maxdist(x1, y1, x2, y2)
-    d2 = maxdist(x2, y2, x1, y1)A
+    d1 = quadct(x1, y1, x2, y2)
+    d2 = quadct(x2, y2, x1, y1)
     d = np.mean(d1, d2)
     sqen = np.sqrt(n1 * n2 / (n1+n2))
     r1 = stats.pearsonr(x1, y1)[0]
@@ -16,7 +16,7 @@ def ks2d2s(x1, y1, x2, y2):
 
 
 
-def maxdist(x1, y1, x2, y2)
+def quadct(x1, y1, x2, y2)
     n1 = len(x1)
 
     d1 = 0
